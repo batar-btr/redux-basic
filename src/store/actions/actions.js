@@ -23,10 +23,21 @@ export const subtract = value => ({
     value
 })
 
-export const storeResult = res => ({
+export const saveResult = res => ({
     type: STORE_RESULT,
     result: res
 })
+
+export const storeResult = res => {
+
+    return dispatch => {
+        setTimeout(() => {
+            dispatch(saveResult(res))
+        }, 2000);
+    }
+}
+
+
 
 export const deleteResult = id => ({
     type: DELETE_RESULT,
